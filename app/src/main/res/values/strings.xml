@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">android_laba1</string>
+    <string name="prompt">"Incorrect color"</string>
 </resources>

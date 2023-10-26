@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    TextView inputText;
+    TextView inputText, errorMessage;
     EditText background;
     Button btnNextPage;
 
@@ -19,14 +19,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         inputText = (TextView) findViewById(R.id.input);
         background = (EditText) findViewById(R.id.color);
         btnNextPage = (Button) findViewById(R.id.btnNextPage);
+        errorMessage = (TextView) findViewById(R.id.error);
         btnNextPage.setOnClickListener(this);
     }
     public void onClick(View view) {
-        String color = background.getText().toString();
+        String color = background.getText().toString().toLowerCase().trim();
         if (color.equals("red") || color.equals("green") || color.equals("blue")) {
+            errorMessage.setText("");
             Intent intent = new Intent(this, SecondActivity.class);
             intent.putExtra("background", color);
             startActivity(intent);
+        } else {
+            errorMessage.setText(getApplicationContext().getString(R.string.prompt));
         }
     }
 }
