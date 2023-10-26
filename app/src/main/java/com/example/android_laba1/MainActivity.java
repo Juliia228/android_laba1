@@ -13,7 +13,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     EditText background;
     Button btnNextPage;
 
-    public void onCreate (Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super .onCreate(savedInstanceState);
         setContentView(R.layout.main);
         inputText = (TextView) findViewById(R.id.input);
